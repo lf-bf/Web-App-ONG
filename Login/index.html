@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles_hyperlink.css">
+</head>
+<body>
+    <button class="btn" id="toggleButton">
+      Faça Login
+    </button>
+    <div class="input-group" id="inputGroup"><br>
+        <div class="input-container">
+            <input class="input" required autocomplete="off" type="email" name="Usuário" id="username">
+            <label class="label" for="username">Email</label>
+        </div>
+        <div class="input-container">
+            <input class="input" required autocomplete="off" type="password" name="Senha" id="senha">
+            <label class="label" for="senha">Senha</label>
+        </div>
+        <div>
+          <button class="btn4" id="entrar" onclick="redirectPaginaInicial()">
+            Entrar
+          </button>
+        </div><br>
+        <div class="a">
+          <a href="index2.html" id="special-link">Não tem cadastro? Clique Aqui</a>
+        </div>
+    </div>
+
+    <script>
+      document.getElementById('toggleButton').addEventListener('click', function() {
+        var inputGroupElement = document.getElementById('inputGroup');
+        inputGroupElement.classList.toggle('show');
+      });
+
+      // Função para verificar se todos os campos estão preenchidos
+        function checkInputs() {
+            var username = document.getElementById('username').value;
+            var senha = document.getElementById('senha').value;
+          
+            var EntrarButton = document.getElementById('entrar');
+
+            if (username && senha) {
+                EntrarButton.classList.add('show');
+            } else {
+                EntrarButton.classList.remove('show');
+            }
+        }
+
+        function redirectPaginaInicial(){
+            window.location.href = "../paginainicial/index.html"; 
+        }
+
+        // Adiciona o evento input a todos os campos
+        var inputs = document.querySelectorAll('.input');
+        inputs.forEach(function(input) {
+            input.addEventListener('input', checkInputs);
+        });
+
+        // Verificação inicial
+        checkInputs();
+    </script>
+</body>
+</html>

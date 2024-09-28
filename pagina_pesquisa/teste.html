@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="./teste.css">
+    <link rel="stylesheet" href="./testelink.css">
+</head>
+<body>
+    <button class="btn" id="toggleButton">
+      Pesquise um produto
+    </button>
+    <div class="input-group" id="inputGroup"><br>
+        <div class="input-container">
+            <input class="input" required autocomplete="off" type="text" name="Usuário" id="username">
+            <label class="label" for="username">ID do produto</label>
+        </div>
+        <div>
+          <button class="btn4" id="entrar">
+            <div class="a">
+              <a href="teste2.html" id="special-link">Pesquisar</a>
+          </button>
+        </div><br>
+        </div>
+    </div>
+
+    <script>
+      document.getElementById('toggleButton').addEventListener('click', function() {
+        var inputGroupElement = document.getElementById('inputGroup');
+        inputGroupElement.classList.toggle('show');
+      });
+
+      // Função para verificar se todos os campos estão preenchidos
+        function checkInputs() {
+            var username = document.getElementById('username').value;
+
+          
+            var EntrarButton = document.getElementById('entrar');
+
+            if (username) {
+                EntrarButton.classList.add('show');
+            } else {
+                EntrarButton.classList.remove('show');
+            }
+        }
+
+        // Adiciona o evento input a todos os campos
+        var inputs = document.querySelectorAll('.input');
+        inputs.forEach(function(input) {
+            input.addEventListener('input', checkInputs);
+        });
+
+        // Verificação inicial
+        checkInputs();
+    </script>
+</body>
+</html>
